@@ -1,10 +1,8 @@
 package defaults
 
-import "defaults/structs"
-
-func StructOpt(tag ...string) *structs.StructDef {
+func StructOpt(tag ...string) *StructDef {
 	if len(tag) != 0 {
-		return &structs.StructDef{DefaultTagName: tag[0]}
+		return &StructDef{DefaultTagName: tag[0]}
 	}
-	return &structs.StructDef{DefaultTagName: "default"}
+	return &StructDef{DefaultTagName: "default"}
 }
