@@ -35,7 +35,7 @@ func (s *StructDef) FormatStruct(pointer interface{}) {
 			}
 
 			// Determines whether the field has a value
-			if !IsSatisfied(currentField) {
+			if !s.isSatisfied(currentField) {
 				// Get field tag default value, if value is empty then pass.
 				if defaultValue := objT.Elem().Field(i).Tag.Get(s.DefaultTagName); defaultValue != "" {
 					// Field type is pointer
@@ -168,7 +168,7 @@ func (s *StructDef) FormatStruct(pointer interface{}) {
 }
 
 // IsSatisfied judge object type is satisfied.
-func IsSatisfied(obj interface{}) bool {
+func (s *StructDef) isSatisfied(obj interface{}) bool {
 	if obj == nil {
 		return false
 	}
